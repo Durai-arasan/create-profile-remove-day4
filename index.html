@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dynamic Profile Cards</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Team Profiles</h1>
+  <button id="addProfileBtn">Add Profile</button>
+  <div id="cardContainer"></div>
+
+  <script type="module">
+    import { createProfileCard } from './cardModule.js';
+
+    const addProfileBtn = document.getElementById('addProfileBtn');
+    const cardContainer = document.getElementById('cardContainer');
+
+    addProfileBtn.addEventListener('click', () => {
+      const name = prompt("Enter name:");
+      const role = prompt("Enter role:");
+
+      if (name && role) {
+        const card = createProfileCard(name, role);
+        cardContainer.appendChild(card);
+      }
+    });
+  </script>
+</body>
+</html>
